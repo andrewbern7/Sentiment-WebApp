@@ -1,0 +1,34 @@
+# dependencies
+/node_modules/
+
+# dotenv environment variables file
+.env
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# runtime data
+pids
+*.pid
+*.seed
+
+# coverage reports
+coverage/
+*.lcov
+
+# build output
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

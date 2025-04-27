@@ -1,0 +1,76 @@
+/* Background animation */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%; }
+    50% {background-position: 100% 50%; }
+    100% {background-position: 0% 50%; }
+}
+
+/* Container */
+.container {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Title */
+.title {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Inputs */
+.input-group {
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: left;
+}
+
+.input-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #7b2ff7;
+    box-shadow: 0 0 10px #7b2ff7;
+}
+
+/* Info section */
+.info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
