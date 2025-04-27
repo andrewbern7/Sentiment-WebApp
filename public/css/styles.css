@@ -1,100 +1,155 @@
-/* Make the whole page container stretch to full height */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff; /* plain white */
-  }
-  
-  /* The wrapper to control sticky footer */
-  .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  /* Where your main page content sits */
-  .content-wrap {
-    flex: 1; /* Fills up the space and pushes footer down */
-    padding-bottom: 150px;
-  }
-  
-  /* Container for Title and Search */
+:root {
+  --bg-start: #e0eafc;
+  --bg-end: #cfdef3;
+  --text: #333;
+  --card-bg: rgba(255,255,255,0.8);
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --accent: #7b2ff7;
+}
+
+[data-theme="dark"] {
+  --bg-start: #121212;
+  --bg-end: #1e1e1e;
+  --text: #a8d0e6;
+  --card-bg: rgba(30,30,30,0.8);
+  --input-bg: #2a2a2a;
+  --input-border: #555;
+  --accent: #7b2ff7;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: var(--text);
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+  padding-bottom: 150px;
+}
+
+.container {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+
+.input-group {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.input-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  color: var(--text);
+}
+
+.input-field {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+.input-field::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.footer {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.footer-line {
+  width: 100%;
+  height: 2px;
+  border: none;
+  background-color: var(--text);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding-top: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content h3,
+.footer-content p {
+  color: var(--text);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 5%;
+  left: 8px;
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle button span {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
   .container {
-    padding: 50px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    padding: 20px;
   }
-  
-  /* Title */
-  .title {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #333;
-  }
-  
-  /* Input Area */
-  .input-group {
-    margin: 20px auto;
-    max-width: 500px;
-    text-align: left;
-  }
-  
-  .input-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 1.2em;
-    color: #333;
-  }
-  
-  .input-field {
-    width: 100%;
-    height: 100px;
-    padding: 12px 20px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    resize: none;
-  }
-  
-  .input-field::placeholder {
-    color: #aaa;
-  }
-  
-  /* Footer Section */
-  .footer {
-    width: 100%;
-    padding: 20px 0;
-  }
-  
-  .footer-line {
-    width: 100%;
-    height: 2px;
-    border: none;
-    background-color: black;
-  }
-  
   .footer-content {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    padding-top: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
+    flex-direction: column;
+    gap: 40px;
   }
-  
-  .footer-content h3 {
-    font-size: 1em;
-    margin-bottom: 6px;
-  }
-  
-  .footer-content p {
-    font-size: 0.9em;
-    line-height: 1.4;
-    margin: 0;
-  }
-  
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

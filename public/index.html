@@ -12,6 +12,12 @@
     <div class="content-wrap">
       <!-- Main Page Content -->
       <div class="container">
+        <div class="theme-toggle">
+            <button id="themeToggleBtn">
+              Toggle Theme <span id="themeIcon">🌙</span>
+            </button>
+          </div>          
+          
         <h1 class="title">Sentiment/Emotional Analysis Machine</h1>
 
         <div class="input-group">
@@ -41,6 +47,21 @@
     </footer>
   </div>
 
-  <script src="/js/main.js"></script>
+  <script>
+    const btn  = document.getElementById('themeToggleBtn');
+    const icon = document.getElementById('themeIcon');
+    // Initialize
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+  
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next  = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      icon.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>
