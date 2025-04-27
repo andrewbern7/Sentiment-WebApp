@@ -10,9 +10,9 @@ body, html {
 }
 
 @keyframes gradientAnimation {
-    0% {background-position: 0% 50%; }
-    50% {background-position: 100% 50%; }
-    100% {background-position: 0% 50%; }
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 /* Container */
@@ -38,12 +38,15 @@ body, html {
     text-align: left;
 }
 
+/* Label for Input */
 .input-label {
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 1.2em;
+    color: #333;
 }
 
+/* Input Field */
 .input-field {
     width: 100%;
     padding: 12px 20px;
@@ -54,9 +57,16 @@ body, html {
     transition: all 0.3s ease;
 }
 
+/* Focus Effect on Input */
 .input-field:focus {
     border-color: #7b2ff7;
     box-shadow: 0 0 10px #7b2ff7;
+}
+
+/* Placeholder Text Style */
+.input-field::placeholder {
+    color: #aaa;
+    font-style: italic;
 }
 
 /* Info section */
