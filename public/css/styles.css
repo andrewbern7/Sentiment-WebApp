@@ -1,28 +1,30 @@
-/* Make the whole page container stretch to full height */
+/* Overall Layout */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff; /* plain white */
+    background-color: #ffffff;
   }
   
-  /* The wrapper to control sticky footer */
+  /* Page Container for Sticky Footer */
   .page-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
   
-  /* Where your main page content sits */
   .content-wrap {
-    flex: 1; /* Fills up the space and pushes footer down */
-    padding-bottom: 150px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
-  /* Container for Title and Search */
+  /* Main Content */
   .container {
     padding: 50px 20px;
+    padding-bottom: 100px;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -38,7 +40,7 @@ html, body {
   /* Input Area */
   .input-group {
     margin: 20px auto;
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
   }
   
@@ -49,6 +51,14 @@ html, body {
     color: #333;
   }
   
+  /* Layout for Input and Radio Buttons */
+  .input-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  /* Textarea Input Field */
   .input-field {
     width: 100%;
     height: 100px;
@@ -64,6 +74,30 @@ html, body {
     color: #aaa;
   }
   
+  /* Radio Buttons Section */
+  .radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0;
+  }
+  
+  .radio-label {
+    font-size: 1em;
+    text-align: left;
+  }
+  
+  .radio-label input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  .radio-label small {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 24px;
+  }
+  
   /* Footer Section */
   .footer {
     width: 100%;
@@ -75,6 +109,7 @@ html, body {
     height: 2px;
     border: none;
     background-color: black;
+    margin-top:100px;
   }
   
   .footer-content {
@@ -88,13 +123,15 @@ html, body {
   }
   
   .footer-content h3 {
-    font-size: 1em;
-    margin-bottom: 6px;
+    font-size: 0.9em; /* SMALLER header text */
+    margin-bottom: 4px;
+    color: #444; /* Slightly lighter color */
   }
   
   .footer-content p {
-    font-size: 0.9em;
+    font-size: 0.85em; /* SMALLER paragraph text */
     line-height: 1.4;
+    color: #666; /* Light gray */
     margin: 0;
   }
   
