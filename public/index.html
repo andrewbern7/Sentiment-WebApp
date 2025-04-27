@@ -22,12 +22,28 @@
 
         <div class="input-group">
           <label for="userInput" class="input-label">Search or Analyze</label>
+        <div class="input-row">
           <textarea id="userInput" class="input-field" placeholder="Input Text"></textarea>
+
+          <!-- Radio Buttons -->
+          <div class="radio-options">
+            <label class="radio-label">
+              <input type="radio" name="mode" value="search" checked>
+              <strong>Search</strong><br>
+              <small>Searches Twitter for Relevant Results</small>
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="mode" value="analyze">
+              <strong>Analyze</strong><br>
+              <small>Analyzes the Current Text</small>
+            </label>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer class="footer">
       <hr class="footer-line">
       <div class="footer-content">
@@ -47,6 +63,7 @@
     </footer>
   </div>
 
+<<<<<<< HEAD
   <script>
     const btn  = document.getElementById('themeToggleBtn');
     const icon = document.getElementById('themeIcon');
@@ -63,5 +80,8 @@
       icon.textContent = next === 'dark' ? '☀️' : '🌙';
     });
   </script>
+=======
+  <script src="/js/main.js"></script> <!-- Optional -->
+>>>>>>> 8acd9688397574d9b86ad19c8e06416bb85005be
 </body>
 </html>
