@@ -157,7 +157,7 @@
   .footer-content p {
     font-size: 0.85em;
     line-height: 1.4;
-    color: #666;
+    color: var(--text);
     margin: 0;
   }
   
