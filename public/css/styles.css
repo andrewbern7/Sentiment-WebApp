@@ -1,3 +1,4 @@
+
 /* THEME VARIABLES */
 :root {
     --bg-start: #ffffff; /* YOUR default background stays white */
@@ -9,7 +10,6 @@
     --accent: #7b2ff7;
   }
   
-  /* Dark Theme Overrides */
   [data-theme="dark"] {
     --bg-start: #121212;
     --bg-end: #1e1e1e;
