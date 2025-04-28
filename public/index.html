@@ -12,26 +12,35 @@
     <div class="content-wrap">
       <!-- Main Page Content -->
       <div class="container">
+        
+        <!-- Theme Toggle Button -->
+        <div class="theme-toggle">
+          <button id="themeToggleBtn">
+            Toggle Theme <span id="themeIcon">🌙</span>
+          </button>
+        </div>
+
         <h1 class="title">Sentiment/Emotional Analysis Machine</h1>
 
         <div class="input-group">
           <label for="userInput" class="input-label">Search or Analyze</label>
-        <div class="input-row">
-          <textarea id="userInput" class="input-field" placeholder="Input Text"></textarea>
+          <div class="input-row">
+            <textarea id="userInput" class="input-field" placeholder="Input Text"></textarea>
 
-          <!-- Radio Buttons -->
-          <div class="radio-options">
-            <label class="radio-label">
-              <input type="radio" name="mode" value="search" checked>
-              <strong>Search</strong><br>
-              <small>Searches Twitter for Relevant Results</small>
-            </label>
+            <!-- Radio Buttons -->
+            <div class="radio-options">
+              <label class="radio-label">
+                <input type="radio" name="mode" value="search" checked>
+                <strong>Search</strong><br>
+                <small>Searches Twitter for Relevant Results</small>
+              </label>
 
-            <label class="radio-label">
-              <input type="radio" name="mode" value="analyze">
-              <strong>Analyze</strong><br>
-              <small>Analyzes the Current Text</small>
-            </label>
+              <label class="radio-label">
+                <input type="radio" name="mode" value="analyze">
+                <strong>Analyze</strong><br>
+                <small>Analyzes the Current Text</small>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -57,6 +66,25 @@
     </footer>
   </div>
 
-  <script src="/js/main.js"></script> <!-- Optional -->
+  <!-- Theme Toggle Script -->
+  <script>
+    const btn  = document.getElementById('themeToggleBtn');
+    const icon = document.getElementById('themeIcon');
+    // Initialize
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next  = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      icon.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+
+  <!-- Optional main.js if needed -->
+  <script src="/js/main.js"></script>
 </body>
 </html>
