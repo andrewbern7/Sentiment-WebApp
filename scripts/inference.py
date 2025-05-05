@@ -1,12 +1,18 @@
 import json
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
-# Label mapping for emotions
+# Label mapping for emotions and sentiment
 emotion_labels = {
     "LABEL_0": "anger",
     "LABEL_1": "joy",
     "LABEL_2": "sadness",
     "LABEL_3": "fear"
+}
+
+sentiment_labels = {
+    "LABEL_0": "negative",
+    "LABEL_1": "neutral",
+    "LABEL_2": "positive"
 }
 
 # Load pipelines with CPU-only
@@ -33,6 +39,7 @@ def main():
 
     # Run sentiment analysis
     sent = sentiment(text)[0]
+    sent["label"] = sentiment_labels.get(sent["label"], sent["label"])
 
     # Run emotion classification and decode labels
     raw_emotions = emotions(text)[0]
