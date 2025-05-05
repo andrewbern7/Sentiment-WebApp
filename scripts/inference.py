@@ -1,12 +1,20 @@
 import json
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
-# 1) Load both pipelines once at startup
+# Label mapping for emotions
+emotion_labels = {
+    "LABEL_0": "anger",
+    "LABEL_1": "joy",
+    "LABEL_2": "sadness",
+    "LABEL_3": "fear"
+}
+
+# Load pipelines with CPU-only
 sentiment = pipeline(
     "sentiment-analysis",
     model="models/TweetEval/checkpoint-1426",
     tokenizer="models/TweetEval/checkpoint-1426",
-    device=-1  # Force CPU use
+    device=-1
 )
 emotions = pipeline(
     "text-classification",
@@ -17,21 +25,31 @@ emotions = pipeline(
 )
 
 def main():
-    # prompt user for input
     text = input("Enter a sentence to analyze: ").strip()
 
     if not text:
         print("No input provided.")
         return
 
-    # run inference
+    # Run sentiment analysis
     sent = sentiment(text)[0]
-    emo = emotions(text)[0]
 
-    # emit combined JSON
+    # Run emotion classification and decode labels
+    raw_emotions = emotions(text)[0]
+    decoded_emotions = [
+        {
+            "emotion": emotion_labels.get(item["label"], item["label"]),
+            "score": item["score"]
+        }
+        for item in raw_emotions
+    ]
+
+    decoded_emotions.sort(key=lambda x: x["score"], reverse=True)
+
+    # Output results
     result = {
         "sentiment": sent,
-        "emotions": emo
+        "emotions": decoded_emotions
     }
     print(json.dumps(result, indent=2))
 
